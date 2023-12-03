@@ -14,6 +14,8 @@ public class VendasApplication {
         return "HELLO WORLD!!";
     }
 
+    // TEST TEST TEST
+
     public static void main(String[] args) {
         SpringApplication.run(VendasApplication.class, args);
     }
