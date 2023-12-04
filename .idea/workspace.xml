@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d749cf4-dbbb-4b50-800a-53bb72af61a4" name="Changes" comment="config inicial h2 database">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/banner_.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+    <list default="true" id="4d749cf4-dbbb-4b50-800a-53bb72af61a4" name="Changes" comment="adicao de sql para h2 em startup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/domain/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/domain/ItemPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/domain/Pedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/domain/Produto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/repositorio/Clientes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/VendasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/dougllasfps/VendasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/dougllasfps/VendasApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/dougllasfps/VendasApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579920408908</updated>
-      <workItem from="1701710348212" duration="4811000" />
+      <workItem from="1701710348212" duration="10712000" />
     </task>
     <task id="LOCAL-00001" summary="config inicial h2 database">
       <created>1701711653362</created>
@@ -171,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701711653362</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adicao de sql para h2 em startup">
+      <created>1701715197055</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701715197055</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -220,7 +231,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="branch=estudos-dados_e_jpa" />
+                        <option value="origin/branch=estudos-dados_e_jpa" />
                       </list>
                     </value>
                   </entry>
@@ -238,6 +249,16 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="origin/branch=estudos-dados_e_jpa" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="branch=estudos-dados_e_jpa" />
                 </option>
               </RecentGroup>
@@ -249,7 +270,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="config inicial h2 database" />
-    <option name="LAST_COMMIT_MESSAGE" value="config inicial h2 database" />
+    <MESSAGE value="adicao de sql para h2 em startup" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicao de sql para h2 em startup" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-dependencies/2.2.4.RELEASE/spring-boot-dependencies-2.2.4.RELEASE.pom">
