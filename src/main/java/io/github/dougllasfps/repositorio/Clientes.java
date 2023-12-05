@@ -19,6 +19,8 @@ public class Clientes {
     private static String UPDATE = "update cliente set nome = ? where id = ? ";
     private static String DELETE = "delete from cliente where id = ? ";
 
+    private static String DELETE_INICICIAS = "delete from cliente where nome like ?";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -61,6 +63,10 @@ public class Clientes {
                 return new Cliente(id, nome);
             }
         };
+    }
+
+    public void deletarPorNomeIniciandoCom(String inicioNome){
+        jdbcTemplate.update(DELETE_INICICIAS, inicioNome + "%");
     }
 
 }
