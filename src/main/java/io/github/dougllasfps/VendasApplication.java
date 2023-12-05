@@ -35,7 +35,6 @@ public class VendasApplication {
             clientes.salvar(new Cliente("Isabela"));
             clientes.salvar(new Cliente("João"));
             clientes.salvar(new Cliente("Lívia"));
-            clientes.salvar(new Cliente("Marcelo"));
 
             List<Cliente> todosClientes = clientes.obterTodos();
             todosClientes.forEach(System.out::println);
