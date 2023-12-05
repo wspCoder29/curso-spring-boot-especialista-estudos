@@ -26,6 +26,16 @@ public class VendasApplication {
         return args -> {
             clientes.salvar(new Cliente("Ada"));
             clientes.salvar(new Cliente("Mona"));
+            clientes.salvar(new Cliente("Carlos"));
+            clientes.salvar(new Cliente("Beatriz"));
+            clientes.salvar(new Cliente("Eduardo"));
+            clientes.salvar(new Cliente("Fernanda"));
+            clientes.salvar(new Cliente("Gustavo"));
+            clientes.salvar(new Cliente("Helena"));
+            clientes.salvar(new Cliente("Isabela"));
+            clientes.salvar(new Cliente("João"));
+            clientes.salvar(new Cliente("Lívia"));
+            clientes.salvar(new Cliente("Marcelo"));
 
             List<Cliente> todosClientes = clientes.obterTodos();
             todosClientes.forEach(System.out::println);
