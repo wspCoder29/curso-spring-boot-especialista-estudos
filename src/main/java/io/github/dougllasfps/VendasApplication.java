@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 @RestController
@@ -20,6 +21,19 @@ public class VendasApplication {
     @GetMapping("/hello")
     public String helloWorld() {
         return "hello world";
+    }
+
+    @Autowired
+    Clientes clientes;
+
+    // Add this method
+    public void printClientIdByName(String name) {
+        Optional<Cliente> cliente = clientes.findByNome(name);
+        if (cliente.isPresent()) {
+            System.out.println("ID of " + name + " is: " + cliente.get().getId());
+        } else {
+            System.out.println("Cliente not found");
+        }
     }
 
     @Bean
@@ -47,16 +61,14 @@ public class VendasApplication {
                 clientes.save(c);
             });
 
-            System.out.println("Cliente Encontrado");
-            clientes.findByNomeLike("Isa").forEach(System.out::println);
+//            System.out.println("Cliente Encontrado");
+//            clientes.findByNomeLike("Isa").forEach(System.out::println);
 
 
 //            System.out.println("Deletando clientes");
 //            clientes.findAll().forEach(c->{
 //                clientes.delete(c);
 //            });
-
-
 
 
             todosClientes = clientes.findAll();
@@ -66,6 +78,9 @@ public class VendasApplication {
 
             clientes.findAll();
             todosClientes.forEach(System.out::println);
+
+            printClientIdByName("Martha atualizado.");
+
 
 
 
