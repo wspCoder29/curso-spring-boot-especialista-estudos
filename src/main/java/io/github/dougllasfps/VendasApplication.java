@@ -25,50 +25,46 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired Clientes clientes) {
         return args -> {
-            clientes.salvar(new Cliente("Ada"));
-            clientes.salvar(new Cliente("Mariana"));
-            clientes.salvar(new Cliente("Carlos"));
-            clientes.salvar(new Cliente("Beatriz"));
-            clientes.salvar(new Cliente("Eduardo"));
-            clientes.salvar(new Cliente("Fernanda"));
-            clientes.salvar(new Cliente("Martha"));
-            clientes.salvar(new Cliente("Helena"));
-            clientes.salvar(new Cliente("Marilon"));
-            clientes.salvar(new Cliente("João"));
-            clientes.salvar(new Cliente("Lívia"));
+            clientes.save(new Cliente("Ada"));
+            clientes.save(new Cliente("Mariana"));
+            clientes.save(new Cliente("Carlos"));
+            clientes.save(new Cliente("Beatriz"));
+            clientes.save(new Cliente("Eduardo"));
+            clientes.save(new Cliente("Fernanda"));
+            clientes.save(new Cliente("Martha"));
+            clientes.save(new Cliente("Helena"));
+            clientes.save(new Cliente("Marilon"));
+            clientes.save(new Cliente("João"));
+            clientes.save(new Cliente("Lívia"));
 
-            List<Cliente> todosClientes = clientes.obterTodos();
+            List<Cliente> todosClientes = clientes.findAll();
             todosClientes.forEach(System.out::println);
 
             System.out.println();
 
             todosClientes.forEach(c -> {
                 c.setNome(c.getNome() + " atualizado.");
-                clientes.atualizar(c);
+                clientes.save(c);
             });
 
             System.out.println("Cliente Encontrado");
-            clientes.buscarPorNome("Isa").forEach(System.out::println);
+            clientes.findByNomeLike("Isa").forEach(System.out::println);
 
 
-            System.out.println("Deletando clientes");
-            clientes.obterTodos().forEach(c->{
-                clientes.deletar(c);
-            });
-
-//            todosClientes.forEach(c->{
-//                clientes.deletarPorNomeIniciandoCom("Ma");
+//            System.out.println("Deletando clientes");
+//            clientes.findAll().forEach(c->{
+//                clientes.delete(c);
 //            });
 
-            todosClientes = clientes.obterTodos();
+
+
+
+            todosClientes = clientes.findAll();
             if(todosClientes.isEmpty()){
                 System.out.println("Sem clientes");
             }
 
-
-
-
-            clientes.obterTodos();
+            clientes.findAll();
             todosClientes.forEach(System.out::println);
 
 
