@@ -51,19 +51,21 @@ public class VendasApplication {
             clientes.buscarPorNome("Isa").forEach(System.out::println);
 
 
-//            System.out.println("Deletando clientes");
-//            clientes.obterTodos().forEach(c->{
-//                clientes.deletar(c);
-//            });
-
-            todosClientes.forEach(c->{
-                clientes.deletarPorNomeIniciandoCom("Ma");
+            System.out.println("Deletando clientes");
+            clientes.obterTodos().forEach(c->{
+                clientes.deletar(c);
             });
+
+//            todosClientes.forEach(c->{
+//                clientes.deletarPorNomeIniciandoCom("Ma");
+//            });
 
             todosClientes = clientes.obterTodos();
             if(todosClientes.isEmpty()){
                 System.out.println("Sem clientes");
             }
+
+
 
 
             clientes.obterTodos();
