@@ -40,25 +40,21 @@ public class VendasApplication {
             Pedido p1 = new Pedido();
             p1.setCliente(cliente1);
             p1.setDataPedido(LocalDate.now());
-            p1.setTotal(BigDecimal.valueOf(100));
+            p1.setTotal(BigDecimal.valueOf(666));
             pedidos.save(p1);
 
             Pedido p2 = new Pedido();
             p2.setCliente(cliente1);
             p2.setDataPedido(LocalDate.now());
-            p2.setTotal(BigDecimal.valueOf(666));
-            pedidos.save(p1);
-
+            p2.setTotal(BigDecimal.valueOf(11));
+            pedidos.save(p2);
 
             System.out.println("Cliente com os pedidos");
             Cliente cliente = clientes.findClienteFetchPedidos(cliente1.getId());
 
             System.out.println(cliente);
-            System.out.println(cliente.getPedidos());
 
             pedidos.findByCliente(cliente).forEach(System.out::println);
-
-
 
 
         };
