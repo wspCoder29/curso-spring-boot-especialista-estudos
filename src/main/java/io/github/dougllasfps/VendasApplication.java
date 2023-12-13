@@ -1,7 +1,9 @@
 package io.github.dougllasfps;
 
 import io.github.dougllasfps.domain.Cliente;
-import io.github.dougllasfps.repositorio.Clientes;
+import io.github.dougllasfps.domain.Pedido;
+import io.github.dougllasfps.repository.Clientes;
+import io.github.dougllasfps.repository.Pedidos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,9 +12,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.SQLOutput;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootApplication
 @RestController
@@ -26,60 +28,35 @@ public class VendasApplication {
     @Autowired
     Clientes clientes;
 
-    // Add this method
-    public void printClientIdByName(String name) {
-        Optional<Cliente> cliente = clientes.findByNome(name);
-        if (cliente.isPresent()) {
-            System.out.println("ID of " + name + " is: " + cliente.get().getId());
-        } else {
-            System.out.println("Cliente not found");
-        }
-    }
 
     @Bean
-    public CommandLineRunner init(@Autowired Clientes clientes) {
+    public CommandLineRunner init(@Autowired Clientes clientes, @Autowired Pedidos pedidos) {
         return args -> {
-            clientes.save(new Cliente("Ada"));
-            clientes.save(new Cliente("Mariana"));
-            clientes.save(new Cliente("Carlos"));
-            clientes.save(new Cliente("Beatriz"));
-            clientes.save(new Cliente("Eduardo"));
-            clientes.save(new Cliente("Fernanda"));
-            clientes.save(new Cliente("Martha"));
-            clientes.save(new Cliente("Helena"));
-            clientes.save(new Cliente("Marilon"));
-            clientes.save(new Cliente("João"));
-            clientes.save(new Cliente("Lívia"));
 
-            List<Cliente> todosClientes = clientes.findAll();
-            todosClientes.forEach(System.out::println);
+            System.out.println("Salvando clientes");
+            Cliente cliente1 = new Cliente("Ada");
+            clientes.save(cliente1);
 
-            System.out.println();
+            Pedido p1 = new Pedido();
+            p1.setCliente(cliente1);
+            p1.setDataPedido(LocalDate.now());
+            p1.setTotal(BigDecimal.valueOf(100));
+            pedidos.save(p1);
 
-            todosClientes.forEach(c -> {
-                c.setNome(c.getNome() + " atualizado.");
-                clientes.save(c);
-            });
-
-//            System.out.println("Cliente Encontrado");
-//            clientes.findByNomeLike("Isa").forEach(System.out::println);
+            Pedido p2 = new Pedido();
+            p2.setCliente(cliente1);
+            p2.setDataPedido(LocalDate.now());
+            p2.setTotal(BigDecimal.valueOf(666));
+            pedidos.save(p1);
 
 
-//            System.out.println("Deletando clientes");
-//            clientes.findAll().forEach(c->{
-//                clientes.delete(c);
-//            });
+            System.out.println("Cliente com os pedidos");
+            Cliente cliente = clientes.findClienteFetchPedidos(cliente1.getId());
 
+            System.out.println(cliente);
+            System.out.println(cliente.getPedidos());
 
-            todosClientes = clientes.findAll();
-            if(todosClientes.isEmpty()){
-                System.out.println("Sem clientes");
-            }
-
-            clientes.findAll();
-            todosClientes.forEach(System.out::println);
-
-            printClientIdByName("Martha atualizado.");
+            pedidos.findByCliente(cliente).forEach(System.out::println);
 
 
 
