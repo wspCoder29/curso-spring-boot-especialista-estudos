@@ -17,14 +17,16 @@ public class Pedido {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
+
     @Column(name = "data_pedido")
     private LocalDate dataPedido;
 
     @Column(name = "total", precision = 20, scale = 2)
     private BigDecimal total;
 
-    @OneToMany(mappedBy = "pedido")
-    private List<ItemPedido> itens;
+
 
     public List<ItemPedido> getItens() {
         return itens;
