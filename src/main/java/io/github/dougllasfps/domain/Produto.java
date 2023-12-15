@@ -8,9 +8,19 @@ import java.math.BigDecimal;
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+
+    public Produto(){
+
+    }
+
+    public Produto(String descricao, BigDecimal preco) {
+        this.descricao = descricao;
+        this.preco = preco;
+    }
 
     @Column(name = "descricao")
     private String descricao;
