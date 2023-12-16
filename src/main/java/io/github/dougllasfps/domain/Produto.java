@@ -1,10 +1,17 @@
 package io.github.dougllasfps.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "produto")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+
 public class Produto {
 
     @Id
@@ -12,28 +19,15 @@ public class Produto {
     @Column(name = "id")
     private Integer id;
 
-
-    public Produto(){
-
-    }
-
-    public Produto(String descricao, BigDecimal preco) {
-        this.descricao = descricao;
-        this.preco = preco;
-    }
-
     @Column(name = "descricao")
     private String descricao;
 
     @Column(name = "preco_unitario")
     private BigDecimal preco;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Produto(String descricao, BigDecimal preco) {
+        this.descricao = descricao;
+        this.preco = preco;
     }
 
     public String getDescricao() {
